@@ -1,7 +1,7 @@
-# summerintership2024_D23IT168
+# summerintership2024_21IT090
 
-<h2>4th Sem Summer Internship</h2>
-# 🌟 AWS Summer Internship 2024 - Project Showcase 🌟
+<h2>6th Sem Summer Internship</h2>
+# 🌟 Machine Learning and Streamlit Internship 2024 - Project Showcase 🌟
 
 Welcome to my GitHub repository for the AWS Summer Internship 2024! This project showcases the work done during the internship, including practical insights and hands-on experience with Amazon Web Services (AWS). 
 
