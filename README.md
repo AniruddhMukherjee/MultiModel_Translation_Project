@@ -12,7 +12,7 @@ Welcome to the UI Summer Internship 2024 GitHub repository! This project display
 - *Orientation Meeting*: Introduction to Streamlit
 - We discussed about the changes that i need to make in the UI of already built website to make it look better and more user friendly.
 
-<img src="[https://media.licdn.com/dms/image/D5612AQEpoU1DdzX4yw/article-cover_image-shrink_600_2000/0/1654203654746?e=2147483647&v=beta&t=1WAkA9Pdvki3nSBEkXHCF7LkPrQvbmaeJu39czxaqpg](https://media.licdn.com/dms/image/D5612AQEpoU1DdzX4yw/article-cover_image-shrink_600_2000/0/1654203654746?e=2147483647&v=beta&t=1WAkA9Pdvki3nSBEkXHCF7LkPrQvbmaeJu39czxaqpg)" alt="Streamlit" width="300"/>
+<img src="[[https://media.licdn.com/dms/image/D5612AQEpoU1DdzX4yw/article-cover_image-shrink_600_2000/0/1654203654746?e=2147483647&v=beta&t=1WAkA9Pdvki3nSBEkXHCF7LkPrQvbmaeJu39czxaqpg](https://media.licdn.com/dms/image/D5612AQEpoU1DdzX4yw/article-cover_image-shrink_600_2000/0/1654203654746?e=2147483647&v=beta&t=1WAkA9Pdvki3nSBEkXHCF7LkPrQvbmaeJu39czxaqpg)](https://techifysolutions.com/wp-content/uploads/2024/04/Streamlit-Data-Apps-Made-Easy.webp)" alt="Streamlit" width="300"/>
 
 
 ### *Here is the Outine of Week-1:*
