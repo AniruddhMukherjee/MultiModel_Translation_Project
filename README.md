@@ -12,8 +12,7 @@ Welcome to the UI Summer Internship 2024 GitHub repository! This project display
 - *Orientation Meeting*: Introduction to Streamlit
 - We discussed about the changes that i need to make in the UI of already built website to make it look better and more user friendly.
 
-<img src="![image](https://github.com/AniruddhMukherjee/SummerInternship2024_21IT090/assets/97076878/e560a9ff-0d7c-4511-b5b9-e0135d040c50)
-" alt="Streamlit" width="300"/>
+<img src="![image](https://github.com/AniruddhMukherjee/SummerInternship2024_21IT090/assets/97076878/e560a9ff-0d7c-4511-b5b9-e0135d040c50)>
 
 
 ### *Here is the Outine of Week-1:*
