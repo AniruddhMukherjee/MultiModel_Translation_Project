@@ -12,7 +12,8 @@ Welcome to the UI Summer Internship 2024 GitHub repository! This project display
 - *Orientation Meeting*: Introduction to Streamlit
 - We discussed about the changes that i need to make in the UI of already built website to make it look better and more user friendly.
 
-<img src="[[https://media.licdn.com/dms/image/D5612AQEpoU1DdzX4yw/article-cover_image-shrink_600_2000/0/1654203654746?e=2147483647&v=beta&t=1WAkA9Pdvki3nSBEkXHCF7LkPrQvbmaeJu39czxaqpg](https://media.licdn.com/dms/image/D5612AQEpoU1DdzX4yw/article-cover_image-shrink_600_2000/0/1654203654746?e=2147483647&v=beta&t=1WAkA9Pdvki3nSBEkXHCF7LkPrQvbmaeJu39czxaqpg)](https://techifysolutions.com/wp-content/uploads/2024/04/Streamlit-Data-Apps-Made-Easy.webp)" alt="Streamlit" width="300"/>
+<img src="![image](https://github.com/AniruddhMukherjee/SummerInternship2024_21IT090/assets/97076878/e560a9ff-0d7c-4511-b5b9-e0135d040c50)
+" alt="Streamlit" width="300"/>
 
 
 ### *Here is the Outine of Week-1:*
@@ -39,7 +40,6 @@ Welcome to the UI Summer Internship 2024 GitHub repository! This project display
 - Another day of self learning and continued learning about transformer model for future use.
 
 ### Day 4: Self Learning
-
 - Compeleted learning about Transformers and started learning about attention model.
 - started basic practical learning about streamlit.
   
@@ -47,8 +47,6 @@ Welcome to the UI Summer Internship 2024 GitHub repository! This project display
 - Started Learning about streamlit
 - started finding good projects to make, to increase the knowledge of streamlit.
 - continued learning about the attention model. 
-
-- Here is the finalised link : http://52.63.0.141/personalpage.html
 
 
 ## 1️⃣ week 2
