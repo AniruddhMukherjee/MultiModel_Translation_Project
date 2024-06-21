@@ -170,62 +170,42 @@ Welcome to the UI Summer Internship 2024 GitHub repository! This project display
 
 ## week 5
 ### *18th June 2024*
-- *Orientation Meeting*: Introduction to AWS and overview of the internship tasks
-- At the start of meeting I tackled questions regarding aws to know its base. Then the 4th week agenda regarding the tasks to be done was discussed. The tasks including from the start of creating an account to generating a portfolio hosted on a aws instance.
-
-<img src="https://media.licdn.com/dms/image/D5612AQEpoU1DdzX4yw/article-cover_image-shrink_600_2000/0/1654203654746?e=2147483647&v=beta&t=1WAkA9Pdvki3nSBEkXHCF7LkPrQvbmaeJu39czxaqpg" alt="AWS Bootcamp" width="300"/>
-
+- Continued making the pages for the website.
+- Encountered multiple problems reguarding tables and session states.
+- figuring out the logic for multiple project documents.
+- Intorduction to the questionnaire page
 
 ### *Here is the Outine of Week-5:*
 
-1. Create an AWS Free Tier account
-
-
-## 📝 Day-by-Day Progress
-
-### Day 1: Creating AWS Free Tier Account
-- Created an AWS Free Tier account as part of Task 1.
-
-### Day 2: creating instance with apache server to deploy web page
-- After launching the EC2 instance, I connected to it using SSH. This allowed me to access the virtual server, which is essentially a remote computer running on AWS infrastructure. The connection was established securely using the provided key pair, ensuring 
-
-### Day 3: Building the Portfolio
-- Created a project directory on the EC2 instance for the portfolio website. This included folders for HTML, CSS, JavaScript, and assets like images and fonts.
-
-### Day 4: Enhancing with JavaScript, SASS, and CSS
-- Implemented JavaScript to add interactive features to the portfolio, such as form validation for the contact section and dynamic content loading for the projects section.
-
-### Day 5: Configuration and final Touchup
-- Configured the Security Group for the Apache server on the EC2 instance to accept incoming connections on port 80. This involved adding an inbound rule in the Security Group settings to allow HTTP traffic, ensuring that the web server is accessible from 
-
-
-
-## week 6
-### *24th June 2024*
-- *Orientation Meeting*: Introduction to AWS and overview of the internship tasks
-- At the start of meeting I tackled questions regarding aws to know its base. Then the 4th week agenda regarding the tasks to be done was discussed. The tasks including from the start of creating an account to generating a portfolio hosted on a aws instance.
-
-<img src="https://media.licdn.com/dms/image/D5612AQEpoU1DdzX4yw/article-cover_image-shrink_600_2000/0/1654203654746?e=2147483647&v=beta&t=1WAkA9Pdvki3nSBEkXHCF7LkPrQvbmaeJu39czxaqpg" alt="AWS Bootcamp" width="300"/>
-
-
-### *Here is the Outine of Week-6:*
-
-1. Create an AWS Free Tier account
-
+1. As the blueprint was available the production of new pages were easier
+2. Figuring out the logic for connecting pages and the documents problem
+3. figuring out the editable table problem and how to save the chnages made in the table
+4. the questionnaire Page Dilemma
 
 ## 📝 Day-by-Day Progress
 
-### Day 1: Creating AWS Free Tier Account
-- Created an AWS Free Tier account as part of Task 1.
+### Day 1: Figuring out session state and the editable table problem
+- Had to create multiple session states for multiple instances in a single page of the website
+- researched on the javascript based grid system name Aggrid which can be implimented in streamlit
+- started creating the logic for the connectin of the three pages: Project, Documentation and Categories.
 
-### Day 2: creating instance with apache server to deploy web page
-- After launching the EC2 instance, I connected to it using SSH. This allowed me to access the virtual server, which is essentially a remote computer running on AWS infrastructure. The connection was established securely using the provided key pair, ensuring 
+### Day 2: Creating the first AgGrid Table
+- Watched videos about how to create Aggrid Tables and how to change multiple functionalities in them
+- explored the documentation of AgGrid and learnet about different features for the same
 
 ### Day 3: Building the Portfolio
-- Created a project directory on the EC2 instance for the portfolio website. This included folders for HTML, CSS, JavaScript, and assets like images and fonts.
+- Implimented AGgrid in all the pages where ever a normal table or dataframe was being used.
+- Made a big change and created a session state in which if you select a project only documents and reports of that page would be shown.
+- Made the logic and Implimented it and now wach project has a different set of documents.
 
 ### Day 4: Enhancing with JavaScript, SASS, and CSS
-- Implemented JavaScript to add interactive features to the portfolio, such as form validation for the contact section and dynamic content loading for the projects section.
+- Started working on the questionnaire page which was a bit complex because each questionnaire contains multiple questions.
+- The questionnaire page opened two table
+  1. The existing questionnaire table
+  2. The Questions table when you select a specific questionnaire
+- Bifercated the code into different files bcoz it got too big 
 
 ### Day 5: Configuration and final Touchup
-- Configured the Security Group for the Apache server on the EC2 instance to accept incoming connections on port 80. This involved adding an inbound rule in the Security Group settings to allow HTTP traffic, ensuring that the web server is accessible from 
+- Created the logic to store all the questions which were fetched from a csv or excel file accordingly.
+- saved the questions in a differnt file for better space management
+- making the session state so that the table displayed below only shows the selected questionnaire table
