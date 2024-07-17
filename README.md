@@ -211,6 +211,14 @@ The task of completely changing the UI using Figma was given to another intern a
 - making the session state so that the table displayed below only shows the selected questionnaire table
 
 
+
+
+## week 6
+### *24th June 2024*
+- Continued making the pages for the website.
+- Encountered multiple problems regarding tables and session states.
+- figuring out the logic for multipage report page
+
 ### *Here is the Outine of Week-6:*
 
 1. Figuring out the final session states
