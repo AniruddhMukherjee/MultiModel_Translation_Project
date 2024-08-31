@@ -4,25 +4,29 @@ import googletrans
 from gtts import gTTS
 import os
 import speech_recognition as sr
-import io
+from streamlit_option_menu import option_menu
 import paths.image as image
 import paths.speech as speech
 import paths.text as text
 
-def translate_app():
+selected = option_menu(
+   menu_title = None,
+   options = ["Text", "Speech", "Image"],
+   icons=['list','mic', 'upload'], menu_icon="cast", default_index=1,
+   orientation = "horizontal"
+)
 
-    st.sidebar.header("CHOOSE METHOD:")
-    input_method = st.sidebar.radio("Choose input method:", ("Text", "Speech", "Image"))
+def main():
 
-    if input_method == "Text":
+    if selected == "Text":
         text.translate_text()
 
-    if input_method == "Speech":
+    if selected == "Speech":
         speech.translate_speech()
 
-    if input_method == "Image":
+    if selected == "Image":
         image.Translate()
 
 
 if __name__ == '__main__':
-    translate_app()
+    main()
