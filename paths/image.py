@@ -1,7 +1,6 @@
 import streamlit as st
 from PIL import Image
 import pytesseract
-import cv2
 import numpy as np
 import googletrans
 from gtts import gTTS
@@ -11,17 +10,11 @@ import os
 pytesseract.pytesseract.tesseract_cmd = '/usr/bin/tesseract'
 
 def image_to_text(image):
-    # Convert the image to a numpy array
-    img_array = np.array(image)
-    
     # Convert the image to grayscale
-    gray = cv2.cvtColor(img_array, cv2.COLOR_RGB2GRAY)
-    
-    # Apply thresholding to preprocess the image
-    threshold = cv2.threshold(gray, 0, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)[1]
+    gray_image = image.convert('L')
     
     # Perform text extraction
-    extracted_text = pytesseract.image_to_string(threshold)
+    extracted_text = pytesseract.image_to_string(gray_image)
     
     return extracted_text
 
@@ -41,10 +34,9 @@ def Translate():
         st.image(image, caption='Uploaded Image', use_column_width=True)
     
         # Convert image to text
-        #if st.button('Extract and Translate Text'):
         extracted_text = image_to_text(image)
         
-            # Display the extracted text
+        # Display the extracted text
         st.subheader("Extracted Text:")
         st.text(extracted_text)
 
