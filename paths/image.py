@@ -7,7 +7,7 @@ from gtts import gTTS
 import os
 
 # Set the Tesseract executable path (may be different in your environment)
-pytesseract.pytesseract.tesseract_cmd = '/usr/bin/tesseract'
+pytesseract.pytesseract.tesseract_cmd = r'/usr/bin/tesseract'
 
 def image_to_text(image):
     # Convert the image to grayscale
