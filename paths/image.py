@@ -5,7 +5,7 @@ import numpy as np
 from googletrans import Translator, LANGUAGES
 from gtts import gTTS
 import os
-import cv2
+#import cv2
 
 # Tesseract configuration
 if not os.path.exists('/usr/bin/tesseract'):
