@@ -2,12 +2,17 @@ import streamlit as st
 from PIL import Image
 import pytesseract
 import numpy as np
-import googletrans
+from googletrans import Translator, LANGUAGES
 from gtts import gTTS
 import os
+import cv2
 
-# Set the Tesseract executable path (may be different in your environment)
-pytesseract.pytesseract.tesseract_cmd = r'/usr/bin/tesseract'
+# Tesseract configuration
+if not os.path.exists('/usr/bin/tesseract'):
+    st.warning("Tesseract is not installed. Please install it or adjust the path.")
+    pytesseract.pytesseract.tesseract_cmd = r'/usr/bin/tesseract'
+else:
+    pytesseract.pytesseract.tesseract_cmd = r'/usr/bin/tesseract'
 
 def image_to_text(image):
     # Convert the image to grayscale
@@ -18,20 +23,27 @@ def image_to_text(image):
     
     return extracted_text
 
-# Streamlit app
-
 def Translate():
-    # File uploader
-    st.title("Image to Text")
+    st.title("Image to Text Translator")
 
-    uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
+    # Image source selection
+    image_source = st.radio("Select image source:", ("Upload Image", "Capture from Camera"))
 
-    if uploaded_file is not None:
-        # Read the image
-        image = Image.open(uploaded_file)
-    
-        # Display the uploaded image
-        st.image(image, caption='Uploaded Image', use_column_width=True)
+    image = None
+
+    if image_source == "Upload Image":
+        uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
+        if uploaded_file is not None:
+            image = Image.open(uploaded_file)
+    else:
+        # Camera capture
+        camera_image = st.camera_input("Take a picture")
+        if camera_image is not None:
+            image = Image.open(camera_image)
+
+    if image is not None:
+        # Display the image
+        st.image(image, caption='Image for Translation', use_column_width=True)
     
         # Convert image to text
         extracted_text = image_to_text(image)
@@ -43,12 +55,12 @@ def Translate():
         # Language selection for translation
         st.subheader("Translate extracted text")
         output_lang = st.selectbox("Select output language:", 
-                                list(googletrans.LANGUAGES.values()), 
-                                index=list(googletrans.LANGUAGES.values()).index('german'))
+                                list(LANGUAGES.values()), 
+                                index=list(LANGUAGES.values()).index('german'))
 
         if st.button("Translate"):
-            translator = googletrans.Translator()
-            output_lang_code = list(googletrans.LANGUAGES.keys())[list(googletrans.LANGUAGES.values()).index(output_lang)]
+            translator = Translator()
+            output_lang_code = list(LANGUAGES.keys())[list(LANGUAGES.values()).index(output_lang)]
             
             translation = translator.translate(extracted_text, dest=output_lang_code)
             
@@ -63,3 +75,6 @@ def Translate():
 
             # Clean up the audio file
             os.remove("translation.mp3")
+
+if __name__ == "__main__":
+    Translate()
