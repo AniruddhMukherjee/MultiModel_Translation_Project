@@ -9,17 +9,10 @@ import io
 def translate_text():
     st.title("Text Translator with Auto Language Detection")
 
-    # Define language options
-    language_options = {
-        'en': 'English',
-        'de': 'German',
-        'hi': 'Hindi'
-    }
+    # Only select output language
+    output_lang = st.selectbox("Select output language:", list(LANGUAGES.values()), index=list(LANGUAGES.values()).index('english'))
 
-    # Select output language
-    output_lang = st.selectbox("Select output language:", list(language_options.values()), index=0)
-
-    input_text = st.text_area("Enter text to translate (English, German, or Hindi):", height=150)
+    input_text = st.text_area("Enter text to translate (language will be auto-detected):", height=150)
     
     if input_text:
         st.subheader(f"Input text: {input_text}")
@@ -30,11 +23,11 @@ def translate_text():
             
             # Detect input language
             detection = translator.detect(input_text)
-            detected_lang = language_options.get(detection.lang, 'Unknown')
+            detected_lang = LANGUAGES.get(detection.lang, 'Unknown')
             st.write(f"Detected input language: {detected_lang}")
 
             # Get output language code
-            output_lang_code = list(language_options.keys())[list(language_options.values()).index(output_lang)]
+            output_lang_code = list(LANGUAGES.keys())[list(LANGUAGES.values()).index(output_lang)]
             
             # Translate
             translation = translator.translate(input_text, dest=output_lang_code)

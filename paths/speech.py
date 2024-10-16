@@ -1,16 +1,22 @@
 import streamlit as st
 from st_audiorec import st_audiorec
-import googletrans
+from googletrans import Translator
 from gtts import gTTS
 import os
 import speech_recognition as sr
 import io
 
+LANGUAGES = {
+    'en': 'English',
+    'de': 'German',
+    'hi': 'Hindi'
+}
+
 def translate_speech():
     st.title("Speech Translator")
 
-    input_lang = st.selectbox("Select input language:", list(googletrans.LANGUAGES.values()), index=list(googletrans.LANGUAGES.values()).index('english'))
-    output_lang = st.selectbox("Select output language:", list(googletrans.LANGUAGES.values()), index=list(googletrans.LANGUAGES.values()).index('german'))
+    st.write("Speak in any of these languages: English, German, or Hindi")
+    output_lang = st.selectbox("Select output language:", list(LANGUAGES.values()))
     
     st.subheader("Record your speech:")
     wav_audio_data = st_audiorec()
@@ -23,39 +29,41 @@ def translate_speech():
             try:
                 with audio as source:
                     audio_data = r.record(source)
-                input_lang_code = list(googletrans.LANGUAGES.keys())[list(googletrans.LANGUAGES.values()).index(input_lang)]
-                input_text = r.recognize_google(audio_data, language=input_lang_code)
+                input_text = r.recognize_google(audio_data)
+                # Auto-detect the language
+                translator = Translator()
+                detected = translator.detect(input_text)
+                if detected.lang not in LANGUAGES:
+                    st.error("The spoken language is not supported. Please use English, German, or Hindi.")
+                    return
+                input_lang = LANGUAGES[detected.lang]
                 st.success("Speech recognized successfully!")
-                st.subheader(f"Text in {input_lang} : {input_text}")
+                st.subheader(f"Detected language: {input_lang}")
+                st.subheader(f"Text in {input_lang}: {input_text}")
             except sr.UnknownValueError:
                 st.error("Speech recognition could not understand the audio. Please try again.")
-                input_text = ""
+                return
             except sr.RequestError as e:
                 st.error(f"Could not request results from speech recognition service. Please try again.")
-                input_text = ""
+                return
     else:
-        input_text = ""
-
+        return
 
     if st.button("Translate"):
-        if input_text:
-            translator = googletrans.Translator()
-            input_lang_code = list(googletrans.LANGUAGES.keys())[list(googletrans.LANGUAGES.values()).index(input_lang)]
-            output_lang_code = list(googletrans.LANGUAGES.keys())[list(googletrans.LANGUAGES.values()).index(output_lang)]
-            
-            translation = translator.translate(input_text, src=input_lang_code, dest=output_lang_code)
-            
-            st.subheader(f"Translation: {translation.text}")
+        translator = Translator()
+        output_lang_code = list(LANGUAGES.keys())[list(LANGUAGES.values()).index(output_lang)]
+        
+        translation = translator.translate(input_text, dest=output_lang_code)
+        
+        st.subheader(f"Translation: {translation.text}")
 
-            tts = gTTS(translation.text, lang=output_lang_code)
-            tts.save("translation.mp3")
-            
-            st.audio("translation.mp3")
+        tts = gTTS(translation.text, lang=output_lang_code)
+        tts.save("translation.mp3")
+        
+        st.audio("translation.mp3")
 
-            # Clean up the audio file
-            os.remove("translation.mp3")
-        else:
-            st.warning("Please enter some text or record speech to translate.")
+        # Clean up the audio file
+        os.remove("translation.mp3")
 
 if __name__ == '__main__':
     translate_speech()
