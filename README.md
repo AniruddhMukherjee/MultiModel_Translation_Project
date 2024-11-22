@@ -34,6 +34,13 @@ This Streamlit-based application offers translation services using audio, text, 
    pip install streamlit pillow pytesseract numpy googletrans==3.1.0a0 gTTS speech_recognition st_audiorec
    ```
 2. Ensure Tesseract is installed on your system and the path is correctly set.
+OR, to directly set path:
+1. sudo apt-get update
+   sudo apt-get install -y tesseract-ocr
+   sudo apt-get install -y libtesseract-dev
+
+2. pip install pytesseract
+   pip install Pillow
 
 ## Usage
 Run the Streamlit app:

@@ -13,13 +13,15 @@ def translate_text():
     language_options = {
         'en': 'English',
         'de': 'German',
-        'hi': 'Hindi'
+        'hi': 'Hindi',
+        'bn': 'Bengali',
+        'mr': 'Marathi'
     }
 
     # Select output language
     output_lang = st.selectbox("Select output language:", list(language_options.values()), index=0)
 
-    input_text = st.text_area("Enter text to translate (English, German, or Hindi):", height=150)
+    input_text = st.text_area("Enter text to translate (English, German, Hindi, Bengali, or Marathi):", height=150)
     
     if input_text:
         st.subheader(f"Input text: {input_text}")

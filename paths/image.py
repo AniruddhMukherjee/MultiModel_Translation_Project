@@ -16,7 +16,9 @@ else:
 LANGUAGES = {
     'en': 'English',
     'de': 'German',
-    'hi': 'Hindi'
+    'hi': 'Hindi',
+    'bn': 'Bengali',
+    'mr': 'Marathi'    
 }
 
 def image_to_text(image):
@@ -27,7 +29,7 @@ def image_to_text(image):
 def Translate():
     st.title("Image to Text Translator")
 
-    st.write("This translator supports English, German, and Hindi.")
+    st.write("This translator supports English, German, Hindi, Bengali and Marathi")
 
     image_source = st.radio("Select image source:", ("Upload Image", "Capture from Camera"))
 
@@ -54,7 +56,7 @@ def Translate():
         detected = translator.detect(extracted_text)
         
         if detected.lang not in LANGUAGES:
-            st.error("The detected language is not supported. Please use an image with text in English, German, or Hindi.")
+            st.error("The detected language is not supported. Please use an image with text in English")
             return
 
         st.subheader(f"Detected language: {LANGUAGES[detected.lang]}")

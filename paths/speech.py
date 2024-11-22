@@ -9,13 +9,15 @@ import io
 LANGUAGES = {
     'en': 'English',
     'de': 'German',
-    'hi': 'Hindi'
+    'hi': 'Hindi',
+    'bn': 'Bengali',
+    'mr': 'Marathi' 
 }
 
 def translate_speech():
     st.title("Speech Translator")
 
-    st.write("Speak in any of these languages: English, German, or Hindi")
+    st.write("Speak in any of these languages: English, German, Hindi, marathi and bengali")
     output_lang = st.selectbox("Select output language:", list(LANGUAGES.values()))
     
     st.subheader("Record your speech:")
@@ -38,7 +40,7 @@ def translate_speech():
                     return
                 input_lang = LANGUAGES[detected.lang]
                 st.success("Speech recognized successfully!")
-                st.subheader(f"Detected language: {input_lang}")
+                st.write(f"Detected language: {input_lang}")
                 st.subheader(f"Text in {input_lang}: {input_text}")
             except sr.UnknownValueError:
                 st.error("Speech recognition could not understand the audio. Please try again.")
